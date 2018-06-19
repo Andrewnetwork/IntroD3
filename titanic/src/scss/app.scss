@@ -1,0 +1,17 @@
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    background: lightblue; /* For browsers that do not support gradients */
+    background: linear-gradient(to bottom, white, lightblue) fixed; /* Standard syntax (must be last) */
+    background-repeat: no-repeat;
+}
+
+#dat{
+    background-color: azure;
+}
+
+#viewButtons{
+    text-align: right;
+    vertical-align:middle;
+    float:right;
+}
