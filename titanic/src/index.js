@@ -14,9 +14,8 @@ function makeTable(data){
   .text(function(d){return d}).exit();
 }
 
-d3.dsv(",", "data/titanicData.csv", function(d) {
+var titanicData = d3.dsv(",", "data/titanicData.csv", function(d) 
+  { 
     return {d}
-  }).then(function(data) {
-    makeTable(data);
-  });
+  }).then(function(data) { makeTable(data); });
 
