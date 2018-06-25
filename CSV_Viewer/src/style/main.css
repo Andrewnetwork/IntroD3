@@ -1,0 +1,43 @@
+
+
+@keyframes example {
+    0%   {background-color: rgba(0, 0, 255, 0.027)}
+    25%  {background-color: rgba(0, 0, 255, 0.2);}
+    50%  {background-color: rgba(0, 0, 255, 0.4);}
+    100% {background-color: rgba(0, 0, 255, 0.6);}
+}
+
+#drop_zone{
+    width: 80%;
+    height: 100px;
+    border: thin dashed grey; 
+    text-align: center;
+    line-height: 100px;
+    color: grey;
+    font-size:30px;
+    margin:0 auto;
+    text-shadow: 1px 1px rgb(53, 51, 51);
+}
+
+.drop_zone_over{
+    animation-name: example;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.drop_zone_default{
+    background-color: white;
+}
+
+#title{
+    font-size: 60px;
+    text-align: center;
+    padding: 15px; 
+    font-family: sans-serif;
+    font-weight: bold
+}
+
+#dat{
+    margin-top: 15px;
+}
