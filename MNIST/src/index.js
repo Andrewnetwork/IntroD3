@@ -5,7 +5,7 @@ import {plotImg,changeSize,plotImgs} from "./ui";
 
 export var MNIST = null;
 
-d3.dsv(",", "data/train.csv", function(d) { 
+d3.dsv(",", "Data/train.csv", function(d) { 
     // Returns [X,y] vectors. 
     const values = Object.values(d);
     return [values.slice(1,values.length),values[0]]

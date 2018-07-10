@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production && cp -r ./static dist"
+    "build": "webpack --mode production && cp -r ./static dist && cp -r ./Data dist"
   },
   "author": "",
   "license": "",

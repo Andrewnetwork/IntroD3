@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <title>Line Chart</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+      #graphContainer{
+        width: 960px;
+        height:500px;
+        margin: 0 auto;
+        border:solid black thin;
+      }
+    </style>
+  </head>
+  <body>
+      <div id="graphContainer">
+        <svg width="960" height="500"></svg>
+      </div>
+      <script lang="js">
+        // ### Simulation Settings ###
+        generationSpeed = 100;
+
+        //
+
+        // Modified from source: https://bl.ocks.org/mbostock/3883245
+        var svg = d3.select("svg"),
+        margin = {top: 20, right: 20, bottom: 30, left: 50},
+        width = +svg.attr("width") - margin.left - margin.right,
+        height = +svg.attr("height") - margin.top - margin.bottom,
+        g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        var parseTime = d3.timeParse("%d-%b-%y");
+
+        var x = d3.scaleTime()
+            .rangeRound([0, width]);
+
+        var y = d3.scaleLinear()
+            .rangeRound([height, 0]);
+
+        var line = d3.line()
+            .x(function(d) { return x(d[0]); })
+            .y(function(d) { return y(d[1]); });
+        
+        // Sampling Settings
+        const months = [["Jan",30],["Feb",28],["Mar",31],["Apr",30],
+                        ["May",31],["Jun",30],["Jul",31],["Aug",31],["Sep",30],
+                         ["Oct",31],["Nov",30],["Dec",31]];
+        var currMonth = 0;
+        var currDay = 1;
+        var curYear = 7;
+        var globalTick = 0;
+        
+        function sample(){
+          const date = currDay+"-"+months[currMonth][0]+"-"+curYear;
+
+          if(currDay+1 > months[currMonth][1]){
+            
+            if(currMonth == 11){
+              currMonth = 0;
+              curYear += 1;
+            }else{
+              currMonth++;
+            }
+            
+            currDay = 1;
+          }
+          else{
+            currDay++;
+          }
+
+          globalTick++;
+          const y = globalTick+d3.randomNormal(globalTick,100)();
+          return [parseTime(date),y];
+        }
+
+        function plotData(data){
+          g.selectAll("*").remove();
+          x.domain(d3.extent(data, function(d) { return d[0]; }));
+          y.domain(d3.extent(data, function(d) { return d[1]; }));
+
+          g.append("g")
+              .attr("transform", "translate(0," + height + ")")
+              .call(d3.axisBottom(x))
+            .select(".domain")
+              .remove();
+
+          g.append("g")
+              .call(d3.axisLeft(y))
+            .append("text")
+              .attr("fill", "#000")
+              .attr("transform", "rotate(-90)")
+              .attr("y", 6)
+              .attr("dy", "0.71em")
+              .attr("text-anchor", "end")
+              .text("Price ($)");
+
+          g.append("path")
+              .datum(data)
+              .attr("fill", "none")
+              .attr("stroke", "steelblue")
+              .attr("stroke-linejoin", "round")
+              .attr("stroke-linecap", "round")
+              .attr("stroke-width", 1.5)
+              .attr("d", line);
+        }
+
+        var simData = [];
+        function simTick(){
+          simData.push(sample());
+          plotData(simData);
+        }
+        setInterval(simTick,generationSpeed)
+        
+
+
+      </script>
+  </body>
+</html>

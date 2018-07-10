@@ -15,6 +15,12 @@ A basic project template.
 
 *This project does not require node.js or knowledge of modern JavaScript development practices. You should start here if you are a JavaScript novice.*
 
+**StockSim**
+A stock simulator. Shows you how to make line graphs for time series data.
+
+[Live Demo](https://andrewnetwork.github.io/IntroD3/StockSim/)
+
+
 **PseudoShop**
 
 Produces a table of data sampled from a hard coded probability distribution. This project demonstrates the basic principles of using D3.js bind data to the DOM and perform data-driven transformations. 
@@ -29,10 +35,10 @@ This folder contains a webpack template project. You can copy this folder and us
 
 Drag and drop a CSV file into the browser and have d3 read it in transform the data to HTML. 
 
-[Live Demo](https://andrewnetwork.github.io/IntroD3/PseudoShop/CSV_Viewer/dist/)
+[Live Demo](https://andrewnetwork.github.io/IntroD3/CSV_Viewer/dist/)
 
 **MNIST**
 
 Interactively view 55,000 MNIST digits. This project shows how image data can be rendered with D3 in the SVG canvas, how to make animations, and how to use input elements to interact with your visualization. 
 
-[Live Demo](https://andrewnetwork.github.io/IntroD3/PseudoShop/MNIST/dist/)
+[Live Demo](https://andrewnetwork.github.io/IntroD3/MNIST/dist/)
