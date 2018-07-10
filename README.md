@@ -15,17 +15,20 @@ A basic project template.
 
 *This project does not require node.js or knowledge of modern JavaScript development practices. You should start here if you are a JavaScript novice.*
 
-**StockSim**
-A stock simulator. Shows you how to make line graphs for time series data.
-
-[Live Demo](https://andrewnetwork.github.io/IntroD3/StockSim/)
-
 
 **PseudoShop**
 
 Produces a table of data sampled from a hard coded probability distribution. This project demonstrates the basic principles of using D3.js bind data to the DOM and perform data-driven transformations. 
 
 [Live Demo](https://andrewnetwork.github.io/IntroD3/PseudoShop/pshop.html)
+
+
+**StockSim**
+
+A stock simulator. Shows you how to make line graphs for time series data.
+
+[Live Demo](https://andrewnetwork.github.io/IntroD3/StockSim/)
+
 
 **Webpack_Template**
 

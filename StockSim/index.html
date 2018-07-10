@@ -11,11 +11,34 @@
         margin: 0 auto;
         border:solid black thin;
       }
+      #title{
+        text-align: center;
+        font-size: 60px;
+        font-family: sans-serif;
+      }
+      #newsContainer{
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 15px;
+        font-size: 20px;
+        height: 200px;
+        overflow-y: scroll;
+        width: 600px;
+        
+      }
+      .news{
+        padding: 10px;
+      }
     </style>
   </head>
   <body>
+      <div id="title">
+        Stock Simulator
+      </div>
       <div id="graphContainer">
         <svg width="960" height="500"></svg>
+      </div>
+      <div id="newsContainer">
       </div>
       <script lang="js">
         // ### Simulation Settings ###
@@ -50,7 +73,11 @@
         var currDay = 1;
         var curYear = 7;
         var globalTick = 0;
-        
+        var periodTick = 0;
+        var periodLen = 0;
+        var periodMood = 1;
+        var periodVariance = 0.1;
+
         function sample(){
           const date = currDay+"-"+months[currMonth][0]+"-"+curYear;
 
@@ -68,9 +95,22 @@
           else{
             currDay++;
           }
+          
+          // Select new period
+          if(periodTick > periodLen){
+            periodLen = Math.floor(Math.random() * 60)+14;
+            periodVariance = d3.randomNormal(10,1)()
+            periodMood = d3.randomUniform(-2, 2)();
+            periodTick = 0;
+            d3.select("#newsContainer")
+            .insert("div","div")
+              .attr("class","news")
+              .text("New Period! Mood: "+periodMood.toFixed(2)+" - Variance: "+periodVariance.toFixed(2));
+          }
+          periodTick+=1;
+          globalTick+=periodMood;
 
-          globalTick++;
-          const y = globalTick+d3.randomNormal(globalTick,100)();
+          const y = d3.randomNormal(globalTick,periodVariance)();
           return [parseTime(date),y];
         }
 
