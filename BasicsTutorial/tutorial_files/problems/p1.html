@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <title>Embedded_Template</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="../js/sampling.js"></script>
+    <script src="../js/createTable.js"></script>
+    <style>
+      th{
+        text-align: center;
+        padding:10px;
+        background-color: black;
+        color:azure;
+        font-family: sans-serif;
+      }
+      td{
+        text-align: center;
+        border: thin grey solid;
+      }
+      table{
+        font-size: 30px;
+        border-collapse:collapse;
+      }
+      #tableTitle{
+        text-align:center; 
+        background-color: burlywood;
+        padding: 15px;
+        font-size: 100px;
+      }
+      #tableContainer{
+        text-align: center;
+        margin: 0 auto;
+        width: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <script lang="js">
+      // ############################ Dataset Creation ############################ 
+      /* We begin by creating a dataset for some fictional store 
+         that logs Age,Gender, and Purchase Total in their ledger. 
+
+         For the sampling function, see: ../js/sampling.js
+      */
+    
+      // Create table schema 
+      const tableSchema = {};
+      tableSchema.title = "Shop Ledger";
+      tableSchema.headings = ["Age", "Gender", "Purchase Total ($)"];
+      tableSchema.rows = [];
+      
+      // Sampling parameters values
+      const minimumPurchase = 5;
+      const minimumAge = 13;
+      const nSamples = 20;
+
+      // Create samples
+      for(var i = 0; i<nSamples; i++){
+        // Sample values
+        tableSchema.rows.push(sample(minimumPurchase,minimumAge));
+      }
+
+      // Display the schema JSON in the browser console.
+      console.log(tableSchema);
+
+      // ############################ HTML Table Creation ############################  
+      /* Now that we have generated the data above, we will use D3
+         to bind tableSchema to an HTML table. 
+
+         See: ../js/createTable.js
+      */     
+
+      var table = createTable(tableSchema);
+      
+      // ############################ Problem 1 ############################
+      /* Given the table above, style it according the the following rules:
+
+            * Linearly color the age cell so that the color gets darker the older a customer is; 
+              for example, if you chose to use grey, an age cell containing 14 should be very
+              light grey, while an age cell containing 56 should be dark grey. 
+
+            * Color the gender cell purple for female and blue for male. 
+            
+            * Linearly color the purchase total cell so that the color gets brighter green for 
+              larger purchases. 
+
+        Use the "table" variable defined above to access the table. 
+      */
+      // Your code here ... 
+   
+
+    </script>
+  </body>
+</html>

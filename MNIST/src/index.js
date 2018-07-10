@@ -15,8 +15,7 @@ d3.dsv(",", "data/train.csv", function(d) {
   d3.select("#loadingDiv").style("visibility","hidden");
   main();
   d3.select("body").append("div").attr("id","imgDisp");
-  plotImgs("#imgDisp",0,100);
-  
+  plotImgs("#imgDisp",0,80);
 });
 
 function main(){
