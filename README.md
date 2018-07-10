@@ -8,9 +8,31 @@ Often when doing research in machine learning you need to visualize your data an
 [Google Slides](https://docs.google.com/presentation/d/1IsTdBJNBZc_Qwml5BMjPs_BWFnK_Bzz1LboOKXwEfFY/edit?usp=sharing)
 
 ## Code 
-**./NeuralTitanic/**
 
-A project demonstrating the visualization the results of a neural network  TensorFlow.js
+**Embedded_Template**
 
-## Setup
-TODO
+A basic project template. 
+
+*This project does not require node.js or knowledge of modern JavaScript development practices. You should start here if you are a JavaScript novice.*
+
+**PseudoShop**
+
+Produces a table of data sampled from a hard coded probability distribution. This project demonstrates the basic principles of using D3.js bind data to the DOM and perform data-driven transformations. 
+
+[Live Demo](https://andrewnetwork.github.io/IntroD3/PseudoShop/pshop.html)
+
+**Webpack_Template**
+
+This folder contains a webpack template project. You can copy this folder and use it as a base for your project. It was used as the template project  for the following projects. 
+
+**CSV_Viewer**
+
+Drag and drop a CSV file into the browser and have d3 read it in transform the data to HTML. 
+
+[Live Demo](https://andrewnetwork.github.io/IntroD3/PseudoShop/CSV_Viewer/dist/)
+
+**MNIST**
+
+Interactively view 55,000 MNIST digits. This project shows how image data can be rendered with D3 in the SVG canvas, how to make animations, and how to use input elements to interact with your visualization. 
+
+[Live Demo](https://andrewnetwork.github.io/IntroD3/PseudoShop/MNIST/dist/)

@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-    <title>Embedded_Template</title>
+    <title>Pseudo Shop: Making Stuff Up Since 2018</title>
     <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="../js/sampling.js"></script>
-    <script src="../js/createTable.js"></script>
+    <script src="js/sampling.js"></script>
+    <script src="js/createTable.js"></script>
     <style>
       th{
         text-align: center;
@@ -25,7 +25,7 @@
       #tableTitle{
         text-align:center; 
         background-color: burlywood;
-        padding: 15px;
+        padding: 25px;
         font-size: 100px;
       }
       #tableContainer{
@@ -46,7 +46,7 @@
     
       // Create table schema 
       const tableSchema = {};
-      tableSchema.title = "Shop Ledger";
+      tableSchema.title = "Pseudo Shop";
       tableSchema.headings = ["Age", "Gender", "Purchase Total ($)"];
       tableSchema.rows = [];
       
@@ -70,25 +70,7 @@
 
          See: ../js/createTable.js
       */     
-
       var table = createTable(tableSchema);
-      
-      // ############################ Problem 1 ############################
-      /* Given the table above, style it according the the following rules:
-
-            * Linearly color the age cell so that the color gets darker the older a customer is; 
-              for example, if you chose to use grey, an age cell containing 14 should be very
-              light grey, while an age cell containing 56 should be dark grey. 
-
-            * Color the gender cell purple for female and blue for male. 
-            
-            * Linearly color the purchase total cell so that the color gets brighter green for 
-              larger purchases. 
-
-        Use the "table" variable defined above to access the table. 
-      */
-      // Your code here ... 
-   
 
     </script>
   </body>

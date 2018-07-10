@@ -27,7 +27,7 @@ function createTable(schema){
       .append("th")
         .text(function(heading){return heading;})
     
-    // Coloring Rules 
+    // Basic sample statistics
     const ages = schema.rows.map(function(x){return x[0]});
     const purchases = schema.rows.map(function(x){return x[2]});
     const meanAge = ages.reduce(function(total,x){return total+x;})/ages.length;
@@ -37,6 +37,7 @@ function createTable(schema){
     const minPurchases = Math.min(...purchases);
     const maxPurchases = Math.max(...purchases);
 
+    // Coloring Rules 
     var cellCntr = 0;
     function cellStyle(value){
       var outVal = null;
@@ -53,15 +54,14 @@ function createTable(schema){
         }
       }else if(cellCntr == 2){
         // Purchase Total
-        console.log(maxPurchases);
-        outVal = "background-color: rgba(31, 219, 34,"+value/maxPurchases+");";;
+        outVal = "background-color: rgba(31, 219, 34,"+value/maxPurchases+");";
       }
 
       cellCntr = (cellCntr + 1)%3;
       return outVal;
       
     }
-
+    
     // Populate table rows with data
     table
     .selectAll("tr")
